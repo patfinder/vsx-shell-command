@@ -35,32 +35,32 @@ export function activate(context: vscode.ExtensionContext) {
 				return;
 			}
 
-            // Get saved command
-            let command: string | undefined = context.globalState.get(LAST_COMMAND_KEY);
-            if(!command)
-                command = 'sort -h'
-        
-            // Show prompt to get command to be executed.
-            command = await getExecutedCommand(command);
+			// Get saved command
+			let command: string | undefined = context.globalState.get(LAST_COMMAND_KEY);
+			if(!command)
+					command = 'sort -h'
+	
+			// Show prompt to get command to be executed.
+			command = await getExecutedCommand(command);
 			context.globalState.update(LAST_COMMAND_KEY, command);
 
-            // Replace selected text with command result.
-            const document = editor.document;
-            const selection = editor.selection;
+			// Replace selected text with command result.
+			const document = editor.document;
+			const selection = editor.selection;
 
-            // Get the word within the selection
-            const selectedText = document.getText(selection);
+			// Get the word within the selection
+			const selectedText = document.getText(selection);
 
-            let cmd = `echo "${selectedText}" | ${command}`;
-            cp.exec(cmd, (_, output, _1) => {
-                console.log('Shell command output: ' + output);
+			let cmd = `echo "${selectedText}" | ${command}`;
+			cp.exec(cmd, (_, output, _1) => {
+					console.log('Shell command output: ' + output);
 
-                // Only apply change if output not empty
-								output = output && output.trim()
-                output && editor.edit(editBuilder => {
-                    editBuilder.replace(selection, output);
-                });
-            });
+					// Only apply change if output not empty
+					output = output && output.trim()
+					output && editor.edit(editBuilder => {
+							editBuilder.replace(selection, output);
+					});
+			});
 		}
 		catch(ex) {
 			console.log(`shell-command error: ${ex}`)
