@@ -2,6 +2,13 @@
 
 This is the README for your extension "shell-command". After writing up a brief description, we recommend including the following sections.
 
+## Notes
+
+- [VSX Data Storage](https://code.visualstudio.com/api/extension-capabilities/common-capabilities#data-storage) - API for storing extension state (last executed command)
+
+- [VSX Get user input from input box](https://www.codepedia.org/snippets/60dbfb494095c204661309bf/get-user-input-from-input-box-in-visual-studio-code)
+
+
 ## Features
 
 Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
