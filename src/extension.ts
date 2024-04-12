@@ -35,28 +35,32 @@ export function activate(context: vscode.ExtensionContext) {
 				return;
 			}
 
-			// Show prompt to get command to be executed.
-			let lastCommand: (string | undefined) = context.globalState.get(LAST_COMMAND_KEY) as string;
-			lastCommand = await getExecutedCommand(lastCommand);
-			context.globalState.update(LAST_COMMAND_KEY, lastCommand);
+            // Get saved command
+            let command: string | undefined = context.globalState.get(LAST_COMMAND_KEY);
+            if(!command)
+                command = 'sort -h'
+        
+            // Show prompt to get command to be executed.
+            command = await getExecutedCommand(command);
+			context.globalState.update(LAST_COMMAND_KEY, command);
 
-			if (editor) {
-				const document = editor.document;
-				const selection = editor.selection;
-	
-				// Get the word within the selection
-				const selectedText = document.getText(selection);
-	
-				let cmd = `echo "${selectedText}" | sort -k2`;
-				cp.exec(cmd, (_, output, _1) => {
-					console.log('Shell command output: ' + output);
-	
-					// Only apply change if output not empty
-					output && editor.edit(editBuilder => {
-						editBuilder.replace(selection, output);
-					});
-				});
-			}
+            // Replace selected text with command result.
+            const document = editor.document;
+            const selection = editor.selection;
+
+            // Get the word within the selection
+            const selectedText = document.getText(selection);
+
+            let cmd = `echo "${selectedText}" | ${command}`;
+            cp.exec(cmd, (_, output, _1) => {
+                console.log('Shell command output: ' + output);
+
+                // Only apply change if output not empty
+								output = output && output.trim()
+                output && editor.edit(editBuilder => {
+                    editBuilder.replace(selection, output);
+                });
+            });
 		}
 		catch(ex) {
 			console.log(`shell-command error: ${ex}`)

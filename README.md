@@ -8,6 +8,20 @@ This is the README for your extension "shell-command". After writing up a brief 
 
 - [VSX Get user input from input box](https://www.codepedia.org/snippets/60dbfb494095c204661309bf/get-user-input-from-input-box-in-visual-studio-code)
 
+- Video recording tool: recordmydesktop
+- If recorded video is "black": This is caused by wayland in compatibility.
+    See Solution [here](https://askubuntu.com/questions/1347489/ubuntu-22-04-any-screen-recorders-not-working-showing-black-screen-only)
+
+- Video editting tool: OpenShot Video Editor
+
+```shell
+    # Open /etc/gdm3/custom.conf 
+    # Uncomment below line:
+    WaylandEnable=false
+
+    # Run below command to reload config
+    sudo systemctl restart gdm3
+```
 
 ## Features
 
