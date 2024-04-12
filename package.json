@@ -14,8 +14,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "shell-command.helloWorld",
-        "title": "Hello World"
+        "command": "shell-command.execute",
+        "title": "Shell Command"
       }
     ]
   },
