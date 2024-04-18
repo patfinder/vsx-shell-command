@@ -3,6 +3,9 @@
   "displayName": "Shell Command",
   "description": "Execute a shell command on the editor selected text",
   "version": "0.0.1",
+  "repository": {
+    "url": "https://github.com/patfinder/vsx-shell-command"
+  },
   "engines": {
     "vscode": "^1.88.0"
   },
