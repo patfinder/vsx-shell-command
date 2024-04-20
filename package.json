@@ -1,8 +1,9 @@
 {
-  "name": "shell-command",
-  "displayName": "Shell Command",
+  "name": "shell-command-2",
+  "displayName": "Shell Command 2",
   "description": "Execute a shell command on the editor selected text",
-  "version": "0.0.1",
+  "publisher": "smartdev",
+  "version": "1.0.1",
   "repository": {
     "url": "https://github.com/patfinder/vsx-shell-command"
   },
@@ -13,12 +14,12 @@
     "Other"
   ],
   "activationEvents": [],
-  "main": "./out/extension.js",
+  "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "shell-command.execute",
-        "title": "SDEV Shell Command"
+        "title": "Shell Command 2"
       }
     ]
   },
