@@ -7,7 +7,7 @@ A VSCode extension that allow user to run shell commands on selected text in the
 - You can call any command that is available in your shell.
 - You can run a command when selecting nothing, the command output will be print at the pointer (side effect).
 - The previously ran command is remembered, so that you don't have to enter again.
-- If you execute some commands frequetnly, you can create a shortcut for it, pass the command line to be executed as "command" argument.
+- If you execute some commands frequently, you can create a shortcut for it, pass the command-line to be executed as "command" argument.
     - Ctrl-Shift-P > Keyboard shortcut JSON
     - Add a new entry like below, replace "key" with the key you want and "command" with command you want to execute.
 
