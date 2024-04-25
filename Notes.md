@@ -10,14 +10,14 @@ This is the README for your extension "shell-command". After writing up a brief 
 
 - Video recording tool: recordmydesktop
     - recordmydesktop --on-the-fly-encoding
-- If recorded video is "black": This is caused by wayland in compatibility.
+- If recorded video is "black": This is caused by Wayland in compatibility.
     See Solution [here](https://askubuntu.com/questions/1347489/ubuntu-22-04-any-screen-recorders-not-working-showing-black-screen-only)
     - sudo systemctl restart gdm3
-    
-- Video editting tool: OpenShot Video Editor
+
+- Video editing tool: OpenShot Video Editor
 
 ```shell
-    # Open /etc/gdm3/custom.conf 
+    # Open /etc/gdm3/custom.conf
     # Uncomment below line:
     WaylandEnable=false
 
