@@ -68,18 +68,27 @@ export function activate(context: vscode.ExtensionContext) {
 				// the command output is the side-effect of the command.
 
 				let cmd = `echo '${selectedText}' | ${command}`;
-				cp.exec(cmd, (_, output, _1) => {
-						console.log('Shell command output: ' + output);
+				let options = {
+					shell: 'bash'
+				};
+
+				// cp.spawnSync(cmd, {shell: true})
+				// 	.
+
+				cp.exec(cmd, options, (error, output, stderr) => {
+						console.log('Shell command error: ' + error);
+						console.log('output: ' + output);
+						console.log('stderr: ' + stderr);
 
 						// Only apply change if output not empty
-						output = output && output.trim()
+						output = output && output.trim();
 						output && editor.edit(editBuilder => {
 								editBuilder.replace(selection, output);
 						});
-				});
+				}, );
 			}
 			catch(ex) {
-				console.log(`shell-command error: ${ex}`)
+				console.log(`shell-command error: ${ex}`);
 			}			
 		});
 

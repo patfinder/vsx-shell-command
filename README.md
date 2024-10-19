@@ -2,6 +2,11 @@
 
 A VSCode extension that allow user to run shell commands on selected text in the editor.
 
+## Caveat
+
+- This extension use `bash` shell to execute the shell commands. So you should have `bash` shell installed.
+- Bash comes with git. But you need to set the %PATH% `system` (not `user`) environment. Otherwise, it might not work.
+
 ## Features
 
 - You can call any command that is available in your shell.

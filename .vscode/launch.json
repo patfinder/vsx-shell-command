@@ -12,10 +12,11 @@
 			"args": [
 				"--extensionDevelopmentPath=${workspaceFolder}"
 			],
-			"outFiles": [
-				"${workspaceFolder}/out/**/*.js"
-			],
-			"preLaunchTask": "${defaultBuildTask}"
+			// "outFiles": [
+			// 	"${workspaceFolder}/out/**/*.js"
+			// ],
+			// "preLaunchTask": "${defaultBuildTask}"
+			"preLaunchTask": "npm: esbuild"
 		}
 	]
 }
