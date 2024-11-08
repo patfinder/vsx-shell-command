@@ -40,6 +40,21 @@ Gawk command example
 
 ![gawk command example](images/demo%20gawk.gif)
 
+## Build and install
+
+```shell
+
+npm run esbuild
+
+# install vsce tool
+npm install -g @vscode/vsce
+
+# build vsix file
+vsce package
+
+# open vscode extensions, then select vsix file to install
+```
+
 ## Requirements
 
 The command you want to run must be available in your shell.
